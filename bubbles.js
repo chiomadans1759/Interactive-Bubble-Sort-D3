@@ -97,41 +97,28 @@
                 .style("left", d3.event.pageX + 50 + "px")
                 .style("opacity", 1);
             })
-            .on("mousedown", function(d) {
-                // table.html("text").text(d.name + " : " + d.bio)           
-                // .style("top", d3.event.pageY + "px")
-                // .style("left", d3.event.pageX  + "px")
-                // .style("opacity", 1)
-                // .append("tr")
-                // .attr("height", "60px")
-                // .attr("width", "100px")
-                // .append("th") 
-                // .attr("class", "th")
-                // .attr("height", "100%")
-                // .attr("width", "100%")
-                // .style("fill", "red")
-                // .append("text") ;
+            .on("mousedown", function(selectedEntity) {
 
-                // table.style("opacity", 1);
-
-               
-                var rows = tbody.selectAll("tr")
-                        .data(datapoints)
-                        .enter()
-                        .append("tr");
-                var cells = rows.selectAll("td")
-                .data(function (row) {
-                    return columns.map(function(column){
-                        return{
-                            column:column,
-                            value:row[column]
-                        }
-                    })
+                //Creates an array consisting of only keys needed from the selected entity object
+                var entityAttributes = columns.map(function(col){
+                    return selectedEntity[col]
                 })
-                .style("opacity", 1)   
-            }) 
+                console.log(entityAttributes)
 
-            var columns = ["id","name", "sales", "decade","bio", "image_path"];
+                //Remove all previous rows
+                tbody.selectAll("tr").remove()
+
+                tbody.append("tr")  //Appends a new row
+                    .selectAll("td")
+                    .data(entityAttributes)
+                    .enter()
+                    .append("td")
+                    .text(function(currentAttribute){
+                        return currentAttribute
+                    })      
+            }); 
+
+            var columns = ["id","name", "sales", "decade"];
             var table = d3.select("body")
                         .append("table")
                         .attr("class", "table")
@@ -147,12 +134,9 @@
                     .style("opacity", 1)
                     .text(function(d, i){
                         return d;
-                    })
-          
+                    });
 
-           
-
-            var tooltip = d3.select("body").append("div")
+        var tooltip = d3.select("body").append("div")
             .attr("class", "tooltip")
             .style("opacity", 0)
     
