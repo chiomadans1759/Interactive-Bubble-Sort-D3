@@ -1,6 +1,6 @@
 (function () {
     var width = 800,
-        height = 500;
+        height = 600;
 
     var svg = d3.select("#chart")
         .append("svg")
@@ -9,24 +9,20 @@
         .append("g")
         .attr("transform", "translate(0,0)")
 
-
-
     var defs = svg.append("defs");
-    defs.append("pattern")
-        .attr("id", "jon-snow")
-        .attr("height", "100%")
-        .attr("width", "100%")
-        .attr("patternContentUnits", "objectBoundingBox")
-        .append("image")
-        .attr("height", 1)
-        .attr("width", 1)
-        .attr("preserveAspectRatio", "none")
-        .attr("xmlns:xlink", "http://www.w3.org/1999/xlink")
-        .attr("xlink:href", "")
+    // defs.append("pattern")
+    //     .attr("id", "jon-snow")
+    //     .attr("height", "100%")
+    //     .attr("width", "100%")
+    //     .attr("patternContentUnits", "objectBoundingBox")
+    //     .append("image")
+    //     .attr("height", 1)
+    //     .attr("width", 1)
+    //     .attr("preserveAspectRatio", "none")
+    //     .attr("xmlns:xlink", "http://www.w3.org/1999/xlink")
+    //     .attr("xlink:href", "")
 
-
-
-    var radiusScale = d3.scaleSqrt().domain([20, 350]).range([10, 80])
+    var radiusScale = d3.scaleSqrt().domain([20, 250]).range([10, 60])
 
     var forceX = d3.forceX(function (d) {
         if (d.decade === 'pre-2000') {
@@ -44,7 +40,7 @@
 
     var simulation = d3.forceSimulation()
         .force("x", forceX)
-        .force("y", d3.forceY(height / 2).strength(0.05))
+        .force("y", d3.forceY(height/2).strength(0.05))
         .force("collide", forceCollide)
 
     d3.queue()
@@ -54,7 +50,8 @@
     function ready(error, datapoints) {
         defs.selectAll(".artist-pattern")
             .data(datapoints)
-            .enter().append("pattern")
+            .enter()
+            .append("pattern")
             .attr("class", "artist-pattern")
             .attr("id", function (d) {
                 return d.name.toLowerCase().replace(/ /g, "-")
@@ -81,9 +78,7 @@
             })
             .attr("fill", function (d) {
                 return "url(#" + d.name.toLowerCase().replace(/ /g, "-") + ")"
-            })
-            .attr("cx", 100)
-            .attr("cy", 300)
+            }) 
             .style("stroke", "#74b9ff")
             .on("mouseover", function () {
                 tooltip.style("display", null)
@@ -98,12 +93,10 @@
                 .style("opacity", 1);
             })
             .on("mousedown", function(selectedEntity) {
-
                 //Creates an array consisting of only keys needed from the selected entity object
                 var entityAttributes = columns.map(function(col){
                     return selectedEntity[col]
-                })
-                console.log(entityAttributes)
+                }) 
 
                 //Remove all previous rows
                 tbody.selectAll("tr").remove()
@@ -118,6 +111,19 @@
                     })      
             }); 
 
+            //apend a div on hover n each bubble
+            var tooltip = d3.select("body").append("div")
+            .attr("class", "tooltip")
+            .style("opacity", 0)
+    
+            tooltip.append("text")
+                .attr("x", 15)
+                .attr("dy", "1.6em")
+                .style("font-size", "30px")
+                .attr("font-weight", "bold") 
+
+
+            //Append a details table on click of each bubble
             var columns = ["id","name", "sales", "decade"];
             var table = d3.select("body")
                         .append("table")
@@ -136,33 +142,25 @@
                         return d;
                     });
 
-        var tooltip = d3.select("body").append("div")
-            .attr("class", "tooltip")
-            .style("opacity", 0)
-    
-            tooltip.append("text")
-                .attr("x", 15)
-                .attr("dy", "1.6em")
-                .style("font-size", "30px")
-                .attr("font-weight", "bold")  
+        
+                
+        
+        //Bubbles split on click of "Decade Split" button
+        // d3.select("#decade").on('click', function () {
+        //     simulation
+        //         .force("x", forceX)
+        //         .alphaTarget(0.5)
+        //         .restart()
 
-        d3.select("#decade").on('click', function () {
-            simulation
-                .force("x", forceX)
-                .alphaTarget(0.5)
-                .restart()
+        // })
 
-        })
-
-        d3.select('#combine').on('click', function () {
-            simulation
-                .force("x", d3.forceX(width / 2.5).strength(0.05))
+        
+        //Make the bubbles stay combined
+        simulation
+                .force("x", d3.forceX(width / 2).strength(0.05))
                 .alphaTarget(0.05)
                 .restart()
-        })
-
-
-
+        
         simulation.nodes(datapoints)
             .on('tick', ticked)
 
