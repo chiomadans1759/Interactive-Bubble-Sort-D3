@@ -3,201 +3,182 @@
    "id": "Steely Dan",
    "name": "Steely Dan",
    "sales": 40,
+   "articles":{"id":"Steely Dan","score":56},
    "decade": "pre-2000",
    "image_path": "images/steely-dan.png",
-   "bio": "After Becker's death (2017�present) Becker died from complications of esophageal cancer on September 3, 2017. In a note released to the media, Fagen remembered his longtime friend and bandmate, and promised to "
- },
+   "bio": "After Becker's death (2017�present) Becker died from complications of esophageal cancer on September 3, 2017. In a note released to the media, Fagen remembered his longtime friend and bandmate, and promised to ",
+   "quotes":{
+      "total":20, 
+      "quote_list": [
+          { "quote" : "We shall never know all the good that a simple smile can do.",
+            "views" : "5",
+            "comment" : "10"},
+          { "quote" : "Only great minds can afford a simple style.",
+            "views" : "2",
+            "comment" : "1"},
+          { "quote" : "The shepherd always tries to persuade the sheep that their interests and his own are the same.",
+            "views" : "3",
+            "comment" : "4"},
+          { "quote" : "Be happy for this moment. This moment is your life.",
+            "views" : "15",
+            "comment" : "7"}
+                   ]
+        }
+  },
  {
    "id": "Beyonce",
    "name": "Beyonce",
    "sales": 94,
+   "articles":{"id":"Steely Dan","score":36},
    "decade": "post-2000",
    "image_path": "images/Beyonce.png",
-   "bio": "Beyonc� Giselle Knowles-Carter is an American singer, songwriter, actress, record producer and dancer. Born and raised in Houston, Texas, Beyonc� performed in various singing and dancing competitions as a child. She rose to fame in the late 1990s as lead singer of the R&B girl-group Destiny's Child."
+   "bio": "Beyonc Giselle Knowles-Carter is an American singer, songwriter, actress, record producer and dancer. Born and raised in Houston, Texas, Beyonc� performed in various singing and dancing competitions as a child. She rose to fame in the late 1990s as lead singer of the R&B girl-group Destiny's Child.",
+   "quotes":{
+      "total":5, 
+      "quote_list": [
+            { "quote" : "Donald Trump has made news this month for all the wrong reasons",
+              "views" : "2",
+              "comment" : "10"},
+            { "quote" : "being friendly with Putin, not curtsying to the Queen",
+              "views" : "12",
+              "comment" : "11"},
+            { "quote" : "It wasn’t a huge surprise therefore when his star on the",
+              "views" : "3",
+              "comment" : "41"},
+            { "quote" : "Hollywood Walk of Fame was smashed to pieces with a pickaxe.",
+              "views" : "1",
+              "comment" : "2"}
+                    ]
+          }
  },
  {
    "id": "Madonna",
    "name": "Madonna",
    "sales": 200,
+   "articles":{"id":"Steely Dan","score":136},
    "decade": "pre-2000",
    "image_path": "images/madonna.png",
-   "bio": "Madonna Louise Ciccone is an American singer-songwriter, actress and businesswoman. Referred to as the Queen of Pop since the 1980s, Madonna is known for pushing the boundaries of songwriting in mainstream popular music, as well as imagery in music videos and on stage"
+   "bio": "Madonna Louise Ciccone is an American singer-songwriter, actress and businesswoman. Referred to as the Queen of Pop since the 1980s, Madonna is known for pushing the boundaries of songwriting in mainstream popular music, as well as imagery in music videos and on stage",
+   "quotes":{
+    "total":5, 
+    "quote_list": [
+          { "quote" : "Donald Trump has made news this month for all the wrong reasons",
+            "views" : "2",
+            "comment" : "10"},
+          { "quote" : "being friendly with Putin, not curtsying to the Queen",
+            "views" : "12",
+            "comment" : "11"},
+          { "quote" : "It wasn’t a huge surprise therefore when his star on the",
+            "views" : "3",
+            "comment" : "41"},
+          { "quote" : "Hollywood Walk of Fame was smashed to pieces with a pickaxe.",
+            "views" : "1",
+            "comment" : "2"}
+                  ]
+        }
  },
  {
    "id": "Adam Levine",
    "name": "Adam Levine",
    "sales": 60,
+   "articles":{"id":"Steely Dan","score":96},
    "decade": "post-2000",
    "image_path": "images/adam-levine.jpg",
-   "bio": "Adam Noah Levine is an American singer, songwriter and actor. He is the lead singer for the pop rock band Maroon 5. Born and raised in Los Angeles, California, Levine began his musical career in 1994, when he co-founded the band Kara's Flowers, of which he was the lead vocalist and guitarist."
+   "bio": "Adam Noah Levine is an American singer, songwriter and actor. He is the lead singer for the pop rock band Maroon 5. Born and raised in Los Angeles, California, Levine began his musical career in 1994, when he co-founded the band Kara's Flowers, of which he was the lead vocalist and guitarist.",
+   "quotes":{
+    "total":5, 
+    "quote_list": [
+          { "quote" : "Donald Trump has made news this month for all the wrong reasons",
+            "views" : "2",
+            "comment" : "10"},
+          { "quote" : "being friendly with Putin, not curtsying to the Queen",
+            "views" : "12",
+            "comment" : "11"},
+          { "quote" : "It wasn’t a huge surprise therefore when his star on the",
+            "views" : "3",
+            "comment" : "41"},
+          { "quote" : "Hollywood Walk of Fame was smashed to pieces with a pickaxe.",
+            "views" : "1",
+            "comment" : "2"}
+                  ]
+        }
  },
  {
    "id": "Kendrick Lamar",
    "name": "Kendrick Lamar",
    "sales": 150,
+   "articles":{"id":"Steely Dan","score":150},
    "decade": "post-2000",
    "image_path": "images/kdot.jpg",
-   "bio": "Kendrick Lamar Duckworth is an American rapper, songwriter, and record producer. He is regarded as one of the most skillful and successful hip hop artists of his generation, with various media outlets branding him the new king of hip hop AKA GOAT"
+   "bio": "Kendrick Lamar Duckworth is an American rapper, songwriter, and record producer. He is regarded as one of the most skillful and successful hip hop artists of his generation, with various media outlets branding him the new king of hip hop AKA GOAT",
+   "quotes":{
+    "total":5, 
+    "quote_list": [
+          { "quote" : "Donald Trump has made news this month for all the wrong reasons",
+            "views" : "2",
+            "comment" : "10"},
+          { "quote" : "being friendly with Putin, not curtsying to the Queen",
+            "views" : "12",
+            "comment" : "11"},
+          { "quote" : "It wasn’t a huge surprise therefore when his star on the",
+            "views" : "3",
+            "comment" : "41"},
+          { "quote" : "Hollywood Walk of Fame was smashed to pieces with a pickaxe.",
+            "views" : "1",
+            "comment" : "2"}
+                  ]
+        }
  },
  {
    "id": "Tupac Shakur",
    "name": "Tupac Shakur",
    "sales": 120,
+   "articles":{"id":"Steely Dan","score":120},
    "decade": "pre-2000",
    "image_path": "images/tupac.jpg",
-   "bio": "Tupac Amaru Shakur also known by his stage names 2Pac and Makaveli was an American rapper, actor and poet. He is considered by many to be one of the greatest hip hop artists of all time. Shakur was born in the Harlem neighborhood of New York City but relocated to Los Angeles in 1988"
+   "bio": "Tupac Amaru Shakur also known by his stage names 2Pac and Makaveli was an American rapper, actor and poet. He is considered by many to be one of the greatest hip hop artists of all time. Shakur was born in the Harlem neighborhood of New York City but relocated to Los Angeles in 1988",
+   "quotes":{
+    "total":5, 
+    "quote_list": [
+          { "quote" : "Donald Trump has made news this month for all the wrong reasons",
+            "views" : "2",
+            "comment" : "10"},
+          { "quote" : "being friendly with Putin, not curtsying to the Queen",
+            "views" : "12",
+            "comment" : "11"},
+          { "quote" : "It wasn’t a huge surprise therefore when his star on the",
+            "views" : "3",
+            "comment" : "41"},
+          { "quote" : "Hollywood Walk of Fame was smashed to pieces with a pickaxe.",
+            "views" : "1",
+            "comment" : "2"}
+                  ]
+        }
  },
  {
    "id": "Biggie Smalls",
    "name": "Biggie Smalls",
    "sales": 100,
+   "articles":{"id":"Steely Dan","score":100},
    "decade": "pre-2000",
    "image_path": "images/biggie.jpg",
-   "bio": "Christopher George Latore Wallace, known professionally as the Notorious B.I.G., Biggie Smalls, or Biggie, was an American rapper. He is considered by many to be one of the greatest rappers of all time. Wallace was raised in the Brooklyn borough of New York City."
- },
- {
-   "id": "Drake",
-   "name": "Drake",
-   "sales": 35,
-   "decade": "post-2000",
-   "image_path": "images/drake.jpg",
-   "bio": "Aubrey Drake Graham is a Canadian rapper, singer, songwriter, record producer, actor, and entrepreneur. Drake initially gained recognition as an actor on the teen drama television series Degrassi: The Next Generation in the early 2000s."
- },
- {
-   "id": "Jcole",
-   "name": "Jcole",
-   "sales": 90,
-   "decade": "post-2000",
-   "image_path": "images/jcole.jpg",
-   "bio": "Jermaine Lamarr Cole is an American rapper, singer, songwriter and record producer. Cole is widely regarded as one of the best rappers of his generation."
- },
- {
-   "id": "Lionel Richie",
-   "name": "Lionel Richie",
-   "sales": 46,
-   "decade": "pre-2000",
-   "image_path": "images/lionel.jpg",
-   "bio": "Lionel Brockman Richie Jr. is an American singer, songwriter, actor and record producer. Beginning in 1968, Richie was a member of the funk and soul band the Commodores."
- },
- {
-  "id": "Ariana",
-  "name": "Ariana",
-  "sales": 146,
-  "decade": "post-2000",
-  "image_path": "images/ariana.jpg",
-  "bio": "Lionel Brockman Richie Jr. is an American singer, songwriter, actor and record producer. Beginning in 1968, Richie was a member of the funk and soul band the Commodores."
-},
-{
-  "id": "meek-mill",
-  "name": "meek-mill",
-  "sales": 106,
-  "decade": "pre-2000",
-  "image_path": "images/meek-mill.jpg",
-  "bio": "Lionel Brockman Richie Jr. is an American singer, songwriter, actor and record producer. Beginning in 1968, Richie was a member of the funk and soul band the Commodores."
-},
-{
-  "id": "ChrisBrown",
-  "name": "ChrisBrown",
-  "sales": 76,
-  "decade": "post-2000",
-  "image_path": "images/ChrisBrown.jpg",
-  "bio": "Lionel Brockman Richie Jr. is an American singer, songwriter, actor and record producer. Beginning in 1968, Richie was a member of the funk and soul band the Commodores."
-},
-{
-  "id": "Beyonce",
-  "name": "Beyonce",
-  "sales": 94,
-  "decade": "post-2000",
-  "image_path": "images/Beyonce.png",
-  "bio": "Beyonc� Giselle Knowles-Carter is an American singer, songwriter, actress, record producer and dancer. Born and raised in Houston, Texas, Beyonc� performed in various singing and dancing competitions as a child. She rose to fame in the late 1990s as lead singer of the R&B girl-group Destiny's Child."
-},
-{
-  "id": "Madonna",
-  "name": "Madonna",
-  "sales": 180,
-  "decade": "pre-2000",
-  "image_path": "images/madonna.png",
-  "bio": "Madonna Louise Ciccone is an American singer-songwriter, actress and businesswoman. Referred to as the Queen of Pop since the 1980s, Madonna is known for pushing the boundaries of songwriting in mainstream popular music, as well as imagery in music videos and on stage"
-},
-{
-  "id": "Adam Levine",
-  "name": "Adam Levine",
-  "sales": 60,
-  "decade": "post-2000",
-  "image_path": "images/adam-levine.jpg",
-  "bio": "Adam Noah Levine is an American singer, songwriter and actor. He is the lead singer for the pop rock band Maroon 5. Born and raised in Los Angeles, California, Levine began his musical career in 1994, when he co-founded the band Kara's Flowers, of which he was the lead vocalist and guitarist."
-},
-{
-  "id": "Kendrick Lamar",
-  "name": "Kendrick Lamar",
-  "sales": 150,
-  "decade": "post-2000",
-  "image_path": "images/kdot.jpg",
-  "bio": "Kendrick Lamar Duckworth is an American rapper, songwriter, and record producer. He is regarded as one of the most skillful and successful hip hop artists of his generation, with various media outlets branding him the new king of hip hop AKA GOAT"
-},
-{
-  "id": "Tupac Shakur",
-  "name": "Tupac Shakur",
-  "sales": 120,
-  "decade": "pre-2000",
-  "image_path": "images/tupac.jpg",
-  "bio": "Tupac Amaru Shakur also known by his stage names 2Pac and Makaveli was an American rapper, actor and poet. He is considered by many to be one of the greatest hip hop artists of all time. Shakur was born in the Harlem neighborhood of New York City but relocated to Los Angeles in 1988"
-},
-{
-  "id": "Biggie Smalls",
-  "name": "Biggie Smalls",
-  "sales": 100,
-  "decade": "pre-2000",
-  "image_path": "images/biggie.jpg",
-  "bio": "Christopher George Latore Wallace, known professionally as the Notorious B.I.G., Biggie Smalls, or Biggie, was an American rapper. He is considered by many to be one of the greatest rappers of all time. Wallace was raised in the Brooklyn borough of New York City."
-},
-{
-  "id": "Drake",
-  "name": "Drake",
-  "sales": 85,
-  "decade": "post-2000",
-  "image_path": "images/drake.jpg",
-  "bio": "Aubrey Drake Graham is a Canadian rapper, singer, songwriter, record producer, actor, and entrepreneur. Drake initially gained recognition as an actor on the teen drama television series Degrassi: The Next Generation in the early 2000s."
-},
-{
-  "id": "Jcole",
-  "name": "Jcole",
-  "sales": 90,
-  "decade": "post-2000",
-  "image_path": "images/jcole.jpg",
-  "bio": "Jermaine Lamarr Cole is an American rapper, singer, songwriter and record producer. Cole is widely regarded as one of the best rappers of his generation."
-},
-{
-  "id": "Lionel Richie",
-  "name": "Lionel Richie",
-  "sales": 146,
-  "decade": "pre-2000",
-  "image_path": "images/lionel.jpg",
-  "bio": "Lionel Brockman Richie Jr. is an American singer, songwriter, actor and record producer. Beginning in 1968, Richie was a member of the funk and soul band the Commodores."
-},
-{
- "id": "Ariana",
- "name": "Ariana",
- "sales": 141,
- "decade": "post-2000",
- "image_path": "images/ariana.jpg",
- "bio": "Lionel Brockman Richie Jr. is an American singer, songwriter, actor and record producer. Beginning in 1968, Richie was a member of the funk and soul band the Commodores."
-},
-{
- "id": "meek-mill",
- "name": "meek-mill",
- "sales": 100,
- "decade": "pre-2000",
- "image_path": "images/meek-mill.jpg",
- "bio": "Lionel Brockman Richie Jr. is an American singer, songwriter, actor and record producer. Beginning in 1968, Richie was a member of the funk and soul band the Commodores."
-},
-{
- "id": "ChrisBrown",
- "name": "ChrisBrown",
- "sales": 216,
- "decade": "post-2000",
- "image_path": "images/ChrisBrown.jpg",
- "bio": "Lionel Brockman Richie Jr. is an American singer, songwriter, actor and record producer. Beginning in 1968, Richie was a member of the funk and soul band the Commodores."
-}
-
+   "bio": "Christopher George Latore Wallace, known professionally as the Notorious B.I.G., Biggie Smalls, or Biggie, was an American rapper. He is considered by many to be one of the greatest rappers of all time. Wallace was raised in the Brooklyn borough of New York City.",
+   "quotes":{
+    "total":5, 
+    "quote_list": [
+          { "quote" : "Donald Trump has made news this month for all the wrong reasons",
+            "views" : "2",
+            "comment" : "10"},
+          { "quote" : "being friendly with Putin, not curtsying to the Queen",
+            "views" : "12",
+            "comment" : "11"},
+          { "quote" : "It wasn’t a huge surprise therefore when his star on the",
+            "views" : "3",
+            "comment" : "41"},
+          { "quote" : "Hollywood Walk of Fame was smashed to pieces with a pickaxe.",
+            "views" : "1",
+            "comment" : "2"}
+                  ]
+        }
+ } 
 ] 

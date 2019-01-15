@@ -57,22 +57,108 @@
       color:white;
       height:40px; 
     }
+
+    main {
+      display: flex;
+    }
+
+
+    aside {
+      border: 1px solid red;
+      display: flex;
+      width: 100%;
+    }
+
+    .detail-panel {
+      margin: auto;
+      width: 80%;
+    }
+
+    .panel-head {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .panel-head span{
+      width: 50%;
+      cursor: pointer;
+    }
+
+    .panel-head span:hover {
+      background: grey;
+      color: white;
+    }
+
+    .panel-body {
+      margin-top: 1rem;
+    }
+
+    .panel-body .tab-two {
+      display: none;
+    }
+
+
+    .tab-two section{
+      width: 50%;
+    }
+
+    .tab-two section:nth-of-type(2){
+      border-left: 1px solid black;
+      padding-left: 1rem;
+      margin-left: 1rem;
+    }
+
+    .tab-two section img {
+      width: 100%;
+    }
+
+    .article-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .article-list li {
+      border-bottom: 1px solid black;
+    }
+
   </style>
 
 </head>
 
-<body>
-  <!-- <table id = "table">
-    <tr>
-      <th>name</th>
-      <th>sales</th>
-    </tr>
-  </table> -->
+<body> 
   <!-- <button id="decade">Decade Split</button> -->
   <!-- <button id="combine">Combine</button> -->
-  <div id="chart"></div>
+  <main>
+    <div id="chart"></div>
+    <aside>
+      <div class="detail-panel">
+        <div class="panel-head">
+          <span>Articles</span><span>Info</span>
+        </div>
+        <div class="panel-body">
+          <div class="tab-one">
+            <ul class="article-list"></ul>
+          </div>
+          <div class="tab-two">
+            <section id="pic-section">
+              <img src="" />
+              <h4></h4>
+            </section>
+            <section id="bio-section">
+              <h3></h3>
+              <p></p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </main>
+  
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js"></script>
-  <script src="bubbles.js"></script>
+  <!--<script src="bubbles.js"></script>-->
+  <script src="new.js"></script>
 </body>
 
 </html>

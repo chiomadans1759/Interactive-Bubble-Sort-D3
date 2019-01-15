@@ -46,8 +46,46 @@
     d3.queue()
         .defer(d3.json, "sales.json")
         .await(ready)
+    
 
     function ready(error, datapoints) {
+        let quotesArray = [];
+
+        datapoints.forEach(data => {
+            data.quotes.quote_list.forEach(quote => {
+                quotesArray.push(quote)
+            })
+        })
+
+        let sortedQuotes = quotesArray.sort((q1, q2) => {
+          let q1Views = parseInt(q1.views);
+          let q2Views = parseInt(q2.views);
+          if(q1Views < q2Views) return 1;
+          if(q1Views == q2Views) return 0;
+          if(q1Views > q2Views) return -1;
+        })
+
+
+
+        let panelBody = d3.select(".panel-body")
+        let articleList = panelBody.select('.article-list')
+
+        let tabTwo = panelBody.select('.tab-two')
+        let tabOne = panelBody.select('.tab-one')
+
+        let entityImg = tabTwo.select('#pic-section').select('img')
+        let entityName = tabTwo.select('#pic-section').select('h4')
+        let entityBio = tabTwo.select('#bio-section').select('p')
+
+
+        articleList.selectAll("li")
+          .data(sortedQuotes.slice(0, 5))
+          .enter()
+          .append("li")
+          .text(quote => {
+            return quote.quote
+          })
+
         defs.selectAll(".artist-pattern")
             .data(datapoints)
             .enter()
@@ -93,8 +131,15 @@
                 .style("opacity", 1);
             })
             .on("mousedown", function(selectedEntity) {
+                tabOne.style('display', 'none')
+                tabTwo.style('display', 'flex')
+
+                entityImg.attr('src', selectedEntity.image_path)
+                entityName.text(selectedEntity.name)
+                entityBio.text(selectedEntity.bio)
+
                 //Creates an array consisting of only keys needed from the selected entity object
-                var entityAttributes = columns.map(function(col){
+                /*var entityAttributes = columns.map(function(col){
                     return selectedEntity[col]
                 }) 
 
@@ -108,7 +153,7 @@
                     .append("td")
                     .text(function(currentAttribute){
                         return currentAttribute
-                    })      
+                    }) */     
             }); 
 
             //apend a div on hover n each bubble
@@ -121,26 +166,6 @@
                 .attr("dy", "1.6em")
                 .style("font-size", "30px")
                 .attr("font-weight", "bold") 
-
-
-            //Append a details table on click of each bubble
-            var columns = ["Articles", "Info"];
-            var table = d3.select("body")
-                        .append("table")
-                        .attr("class", "table")
-                        .style("opacity", 1);
-            var thead = table.append("thead");
-            var tbody = table.append("tbody");
-                    thead.append("tr")
-                    .selectAll("th")
-                    .data(columns)
-                    .enter()
-                    .append("th")
-                    .style("class", "table")
-                    .style("opacity", 1)
-                    .text(function(d, i){
-                        return d;
-                    });
 
         
                 
