@@ -3,25 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <style>
-
-    /* svg {
-      background: #f1f1f1
-    } */
-
-    /* p,
-    text {
-      font-size: 1rem
-    } */
-
-    button {
-      padding: 5px;
-      background-color: lightblue;
-      border: 1px solid royalblue;
-      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      z-index: 1;
-
-    }
+  <style>  
 
     .tooltip { 
       background: pink;
@@ -36,105 +18,107 @@
       font-size: 16px
 
     }
-    .table{
-      text-decoration: none; 
-      font-size: 12px; 
-      position: absolute;
-      text-align: center;
-      top: 95px; 
-      right:120px; 
-      width: 24rem;
-      font-size: 16px
-    } 
-    tr,td, th{
-      background-color:brown;
-      color:white;
-      height:40px;
-      padding:0 20px; 
-    } 
-    table{
-      background-color:pink;
-      color:white;
-      height:40px; 
-    }
-
+     
     main {
       display: flex;
     }
 
-
     aside {
-      border: 1px solid red;
-      display: flex;
+      border: 1px solid #ccc;
+      display: flex; 
       width: 100%;
+      background:rgb(236, 235, 235);
+      height:contain;
+      margin:auto 30px; 
     }
 
     .detail-panel {
       margin: auto;
-      width: 80%;
+      width: 100%;
     }
 
     .panel-head {
       width: 100%;
-      display: flex;
-      justify-content: space-between;
+      display: flex; 
+      text-align: center;
     }
 
     .panel-head span{
       width: 50%;
-      cursor: pointer;
+      padding:10px;  
+      cursor: pointer; 
     }
 
     .panel-head span:hover {
       background: grey;
       color: white;
     }
-
+    #articles{
+      background-color: grey;
+      color:white;
+    }
     .panel-body {
       margin-top: 1rem;
     }
 
     .panel-body .tab-two {
       display: none;
+    } 
+    #bio-section{
+      width:70%;
     }
-
-
-    .tab-two section{
-      width: 50%;
+    #pic-section{
+      width:30%;
     }
-
+    #pic-section h4{
+      padding:0;
+      margin:0;
+      text-align: center;
+    }
     .tab-two section:nth-of-type(2){
       border-left: 1px solid black;
       padding-left: 1rem;
       margin-left: 1rem;
-    }
-
+    } 
     .tab-two section img {
       width: 100%;
+      height: 90%;
+      padding:0;
+      border:2px solid #ccc;
     }
 
     .article-list {
       list-style: none;
-      padding: 0;
+      padding: 0;      
+      width:100%;
     }
 
     .article-list li {
-      border-bottom: 1px solid black;
+      border-bottom: 2px solid #ccc;
+      background-color: #fff;
+      padding:15px; 
+      width:contain;
+      line-height: 30px;
     }
+    #bio-section p:nth-last-child(1){
+      font-weight:200;
+      height:8rem;
+    } 
+    #bio-section p{
+      font-weight:800;
+    } 
 
   </style>
 
 </head>
 
-<body> 
-  <!-- <button id="decade">Decade Split</button> -->
-  <!-- <button id="combine">Combine</button> -->
+<body>  
   <main>
     <div id="chart"></div>
     <aside>
       <div class="detail-panel">
         <div class="panel-head">
-          <span>Articles</span><span>Info</span>
+          <span id="articles">Articles</span><span id = "info">Info</span>
         </div>
         <div class="panel-body">
           <div class="tab-one">
@@ -146,8 +130,12 @@
               <h4></h4>
             </section>
             <section id="bio-section">
-              <h3></h3>
-              <p></p>
+              <h3></h3> 
+              <p></p> 
+              <p></p> 
+              <p></p> 
+              <p></p> 
+              <p></p> 
             </section>
           </div>
         </div>

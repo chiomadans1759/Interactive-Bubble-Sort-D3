@@ -1,10 +1,11 @@
 [
  {
    "id": "Steely Dan",
-   "name": "Steely Dan",
-   "sales": 40,
+   "name": "Steely Dan", 
    "articles":{"id":"Steely Dan","score":56},
-   "decade": "pre-2000",
+   "age":34,
+   "country":"USA",
+   "net_worth": 40, 
    "image_path": "images/steely-dan.png",
    "bio": "After Becker's death (2017�present) Becker died from complications of esophageal cancer on September 3, 2017. In a note released to the media, Fagen remembered his longtime friend and bandmate, and promised to ",
    "quotes":{
@@ -27,10 +28,11 @@
   },
  {
    "id": "Beyonce",
-   "name": "Beyonce",
-   "sales": 94,
-   "articles":{"id":"Steely Dan","score":36},
-   "decade": "post-2000",
+   "name": "Beyonce", 
+   "age":25,
+   "country":"Paris",
+   "net_worth":400, 
+   "articles":{"id":"Steely Dan","score":36}, 
    "image_path": "images/Beyonce.png",
    "bio": "Beyonc Giselle Knowles-Carter is an American singer, songwriter, actress, record producer and dancer. Born and raised in Houston, Texas, Beyonc� performed in various singing and dancing competitions as a child. She rose to fame in the late 1990s as lead singer of the R&B girl-group Destiny's Child.",
    "quotes":{
@@ -53,10 +55,11 @@
  },
  {
    "id": "Madonna",
-   "name": "Madonna",
-   "sales": 200,
-   "articles":{"id":"Steely Dan","score":136},
-   "decade": "pre-2000",
+   "name": "Madonna", 
+   "age":29,
+   "country":"Australia",
+   "net_worth":234, 
+   "articles":{"id":"Steely Dan","score":136}, 
    "image_path": "images/madonna.png",
    "bio": "Madonna Louise Ciccone is an American singer-songwriter, actress and businesswoman. Referred to as the Queen of Pop since the 1980s, Madonna is known for pushing the boundaries of songwriting in mainstream popular music, as well as imagery in music videos and on stage",
    "quotes":{
@@ -79,10 +82,11 @@
  },
  {
    "id": "Adam Levine",
-   "name": "Adam Levine",
-   "sales": 60,
-   "articles":{"id":"Steely Dan","score":96},
-   "decade": "post-2000",
+   "name": "Adam Levine", 
+   "age":44,
+   "country":"Jamaica",
+   "net_worth":46, 
+   "articles":{"id":"Steely Dan","score":96}, 
    "image_path": "images/adam-levine.jpg",
    "bio": "Adam Noah Levine is an American singer, songwriter and actor. He is the lead singer for the pop rock band Maroon 5. Born and raised in Los Angeles, California, Levine began his musical career in 1994, when he co-founded the band Kara's Flowers, of which he was the lead vocalist and guitarist.",
    "quotes":{
@@ -105,10 +109,11 @@
  },
  {
    "id": "Kendrick Lamar",
-   "name": "Kendrick Lamar",
-   "sales": 150,
-   "articles":{"id":"Steely Dan","score":150},
-   "decade": "post-2000",
+   "name": "Kendrick Lamar", 
+   "age":35,
+   "country":"UK",
+   "net_worth":90, 
+   "articles":{"id":"Steely Dan","score":150}, 
    "image_path": "images/kdot.jpg",
    "bio": "Kendrick Lamar Duckworth is an American rapper, songwriter, and record producer. He is regarded as one of the most skillful and successful hip hop artists of his generation, with various media outlets branding him the new king of hip hop AKA GOAT",
    "quotes":{
@@ -131,10 +136,11 @@
  },
  {
    "id": "Tupac Shakur",
-   "name": "Tupac Shakur",
-   "sales": 120,
-   "articles":{"id":"Steely Dan","score":120},
-   "decade": "pre-2000",
+   "name": "Tupac Shakur", 
+   "age":54,
+   "country":"Japan",
+   "net_worth":700, 
+   "articles":{"id":"Steely Dan","score":120}, 
    "image_path": "images/tupac.jpg",
    "bio": "Tupac Amaru Shakur also known by his stage names 2Pac and Makaveli was an American rapper, actor and poet. He is considered by many to be one of the greatest hip hop artists of all time. Shakur was born in the Harlem neighborhood of New York City but relocated to Los Angeles in 1988",
    "quotes":{
@@ -157,10 +163,11 @@
  },
  {
    "id": "Biggie Smalls",
-   "name": "Biggie Smalls",
-   "sales": 100,
-   "articles":{"id":"Steely Dan","score":100},
-   "decade": "pre-2000",
+   "name": "Biggie Smalls", 
+   "age":34,
+   "country":"USA",
+   "net_worth":40, 
+   "articles":{"id":"Steely Dan","score":100}, 
    "image_path": "images/biggie.jpg",
    "bio": "Christopher George Latore Wallace, known professionally as the Notorious B.I.G., Biggie Smalls, or Biggie, was an American rapper. He is considered by many to be one of the greatest rappers of all time. Wallace was raised in the Brooklyn borough of New York City.",
    "quotes":{

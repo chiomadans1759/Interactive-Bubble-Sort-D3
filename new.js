@@ -24,12 +24,7 @@
 
     var radiusScale = d3.scaleSqrt().domain([20, 250]).range([10, 60])
 
-    var forceX = d3.forceX(function (d) {
-    //     if (d.decade === 'pre-2000') {
-    //         return 170
-    //     } else {
-    //         return 600
-    //     }
+    var forceX = d3.forceX(function (d) { 
         return width / 2
     }).strength(0.07)
 
@@ -64,22 +59,26 @@
           if(q1Views == q2Views) return 0;
           if(q1Views > q2Views) return -1;
         })
-
-
-
+ 
         let panelBody = d3.select(".panel-body")
+        let panelHead = d3.select(".panel-head")
         let articleList = panelBody.select('.article-list')
-
         let tabTwo = panelBody.select('.tab-two')
         let tabOne = panelBody.select('.tab-one')
 
         let entityImg = tabTwo.select('#pic-section').select('img')
         let entityName = tabTwo.select('#pic-section').select('h4')
-        let entityBio = tabTwo.select('#bio-section').select('p')
-
+        let entityTittle = tabTwo.select('#bio-section')
+            .select('h3')  
+            .text("QUICK BIO")
+        let entityAge = tabTwo.select('#bio-section').select('p:nth-of-type(1)')
+        let entityCountry = tabTwo.select('#bio-section').select('p:nth-of-type(2)')  
+        let entityWorth = tabTwo.select('#bio-section').select('p:nth-of-type(3)')
+        let entityTotalQuotes = tabTwo.select('#bio-section').select('p:nth-of-type(4)')
+        let entityBio = tabTwo.select('#bio-section').select('p:nth-of-type(5)') 
 
         articleList.selectAll("li")
-          .data(sortedQuotes.slice(0, 5))
+          .data(sortedQuotes.slice(0, 7))
           .enter()
           .append("li")
           .text(quote => {
@@ -133,27 +132,15 @@
             .on("mousedown", function(selectedEntity) {
                 tabOne.style('display', 'none')
                 tabTwo.style('display', 'flex')
-
+                let Info = panelHead.select("#info").style("background-color", "grey").style("color", "white")
+                let Article = panelHead.select("#articles").style("background-color", "inherit").style("color", "black")
                 entityImg.attr('src', selectedEntity.image_path)
                 entityName.text(selectedEntity.name)
-                entityBio.text(selectedEntity.bio)
-
-                //Creates an array consisting of only keys needed from the selected entity object
-                /*var entityAttributes = columns.map(function(col){
-                    return selectedEntity[col]
-                }) 
-
-                //Remove all previous rows
-                tbody.selectAll("tr").remove()
-
-                tbody.append("tr")  //Appends a new row
-                    .selectAll("td")
-                    .data(entityAttributes)
-                    .enter()
-                    .append("td")
-                    .text(function(currentAttribute){
-                        return currentAttribute
-                    }) */     
+                entityAge.text("Age" +" " + ":" + " " + selectedEntity.age)
+                entityCountry.text("Country" +" " + ":" + " " + selectedEntity.country)
+                entityWorth.text("Est. Net Worth" + " " + ":" + " $" + selectedEntity.net_worth + "M")
+                entityTotalQuotes.text("Total Quotes" +" " + ":" + " " + selectedEntity.quotes.total)
+                entityBio.text(selectedEntity.bio)    
             }); 
 
             //apend a div on hover n each bubble
@@ -166,20 +153,7 @@
                 .attr("dy", "1.6em")
                 .style("font-size", "30px")
                 .attr("font-weight", "bold") 
-
-        
-                
-        
-        //Bubbles split on click of "Decade Split" button
-        // d3.select("#decade").on('click', function () {
-        //     simulation
-        //         .force("x", forceX)
-        //         .alphaTarget(0.5)
-        //         .restart()
-
-        // })
-
-        
+ 
         //Make the bubbles stay combined
         simulation
                 .force("x", d3.forceX(width / 2).strength(0.05))
