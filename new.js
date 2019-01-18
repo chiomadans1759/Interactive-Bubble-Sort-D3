@@ -9,18 +9,7 @@
         .append("g")
         .attr("transform", "translate(0,0)")
 
-    var defs = svg.append("defs");
-    // defs.append("pattern")
-    //     .attr("id", "jon-snow")
-    //     .attr("height", "100%")
-    //     .attr("width", "100%")
-    //     .attr("patternContentUnits", "objectBoundingBox")
-    //     .append("image")
-    //     .attr("height", 1)
-    //     .attr("width", 1)
-    //     .attr("preserveAspectRatio", "none")
-    //     .attr("xmlns:xlink", "http://www.w3.org/1999/xlink")
-    //     .attr("xlink:href", "")
+    var defs = svg.append("defs"); 
 
     var radiusScale = d3.scaleSqrt().domain([20, 250]).range([10, 60])
 
@@ -29,7 +18,7 @@
     }).strength(0.07)
 
     var forceCollide = d3.forceCollide(function (d) {
-        return radiusScale(d.articles.score) + 1
+        return radiusScale(d.articles.score) + 2
     })
 
 
@@ -118,13 +107,28 @@
             }) 
             .style("stroke", "#74b9ff")
             .on("mouseover", function () {
-                tooltip.style("display", null)
+                tooltip.style("display", null) 
+                    d3.select(this)
+                      .transition()
+                      .duration(500) 
+                      .attr('r', 60) 
+                  
             })
+            
             .on("mouseout", function () {
                 tooltip.style("display", "none")
+                d3.select(this)
+                    .transition()
+                    .duration(2000)
+                    .attr('r', function(d){
+                        return radiusScale(d.articles.score)
+                    }) 
             })
             .on("mousemove", function (d) {
-                tooltip.html("text").text(d.name + " : " + d.bio)           
+                tooltip.html(
+                    '<b>' +  d.name + "</b>" + 
+                    "<br/>" +"<p>" + "Viewed by " + d.quotes.total + " people" + "</p>"
+                     + "<p>" + "Commented by " + d.age + " people" + "</p>")	     
                 .style("top", d3.event.pageY + 20 + "px")
                 .style("left", d3.event.pageX + 50 + "px")
                 .style("opacity", 1);
@@ -140,7 +144,15 @@
                 entityCountry.text("Country" +" " + ":" + " " + selectedEntity.country)
                 entityWorth.text("Est. Net Worth" + " " + ":" + " $" + selectedEntity.net_worth + "M")
                 entityTotalQuotes.text("Total Quotes" +" " + ":" + " " + selectedEntity.quotes.total)
-                entityBio.text(selectedEntity.bio)    
+                entityBio.text(selectedEntity.bio) 
+
+                if (this !== d3.select('circle:last-child').node()) {
+                    this.parentElement.appendChild(this);
+                    d3.select(this)
+                      .transition()
+                      .duration(500) 
+                      .attr('r', 100) 
+                  }  
             }); 
 
             //apend a div on hover n each bubble
