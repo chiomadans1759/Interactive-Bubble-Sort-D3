@@ -98,20 +98,30 @@
         var circles = svg.selectAll(".artist")
             .data(datapoints)
             .enter().append("circle")
-            .attr("class", "artist")
+            .classed("artist", true)
+            .attr("stroke", "brown")
             .attr("r", function (d) {
                 return radiusScale(d.articles.score)
             })
             .attr("fill", function (d) {
                 return "url(#" + d.name.toLowerCase().replace(/ /g, "-") + ")"
-            }) 
-            .style("stroke", "#74b9ff")
+            })  
             .on("mouseover", function () {
                 tooltip.style("display", null) 
-                    d3.select(this)
-                      .transition()
-                      .duration(500) 
-                      .attr('r', 60) 
+                    // d3.select(this)
+                    //   .transition()
+                    //   .duration(500) 
+                    //   .attr('r', 60) 
+                    //   .attr("stroke-width", 5) 
+
+                    if (this !== d3.select('circle:last-child').node()) {
+                        this.parentElement.appendChild(this);
+                        d3.select(this)
+                          .transition()
+                          .duration(500) 
+                          .attr('r', 70)
+                          .attr("stroke-width", 5) 
+                      } 
                   
             })
             
@@ -123,6 +133,7 @@
                     .attr('r', function(d){
                         return radiusScale(d.articles.score)
                     }) 
+                    .attr("stroke-width", 1)
             })
             .on("mousemove", function (d) {
                 tooltip.html(
@@ -146,16 +157,16 @@
                 entityTotalQuotes.text("Total Quotes" +" " + ":" + " " + selectedEntity.quotes.total)
                 entityBio.text(selectedEntity.bio) 
 
-                if (this !== d3.select('circle:last-child').node()) {
+                if (this == d3.select('circle:last-child').node()) {
                     this.parentElement.appendChild(this);
                     d3.select(this)
                       .transition()
                       .duration(500) 
-                      .attr('r', 100) 
-                  }  
+                      .attr('r', 100)
+                  } 
             }); 
 
-            //apend a div on hover n each bubble
+            //apend a div on hover of each bubble
             var tooltip = d3.select("body").append("div")
             .attr("class", "tooltip")
             .style("opacity", 0)
