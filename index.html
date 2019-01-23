@@ -26,7 +26,9 @@
     }
      
     main {
-      display: flex;
+      display: flex;      
+      width:95%;
+      float:right;
     }
 
     aside {
@@ -112,35 +114,73 @@
     } 
     #bio-section p{
       font-weight:800;
+    }  
+    tr,td, th{
+      background-color:rgb(88, 85, 85);
+      color:white;
+      height:40px;
+      padding:0 5px; 
     } 
     .table{
-      text-decoration: none; 
+      background-color:rgb(252, 237, 239);
+      color:white;
+      height:40px; 
+      width:15%;  
       font-size: 12px; 
       position: absolute;
       text-align: center;
-      top: 95px; 
-      left:10px; 
-      width: 14rem;
+      top: 40px; 
+      left:20px;  
       font-size: 16px
-    } 
-    tr,td, th{
-      background-color:brown;
-      color:white;
-      height:40px;
-      padding:0 20px; 
-    } 
-    table{
-      background-color:pink;
-      color:white;
-      height:40px; 
     }
-
+.entities-list-container{
+  position:absolute;
+  top:0;
+  left:0;
+  width:15%;
+  margin-left:20px;
+}
+.entities-list-container h2{ 
+  font-size:1rem; 
+  color:black;  
+}
+.entities-key{  
+  display:flex;
+}
+.entities-list-container .entities-list-image{
+  width:10%;
+}
+.entities-list-container .entities-list-image img{
+  width:60%;
+  height:15px;
+  margin:0;
+  padding:0;
+  background-size: contain;
+  border: 1px solid #ccc;
+} 
+.entities-list-container .entities-list-name h6{
+  width:100%; 
+  font-size:12px; 
+  margin:0; 
+  padding:3px 0;
+  padding-left:15px; 
+  height:15px; 
+} 
   </style>
 
 </head>
 
 <body>  
   <main>
+    <sidebar> 
+      <section class = "entities-list-container">
+        <h2>Represented Entities</h2>
+        <div class="entities-key">
+          <div class="entities-list-image"> </div>
+          <div class="entities-list-name"> </div>
+        </div>  
+      </section> 
+    </sidebar>
     <div id="chart"></div>
     <aside>
       <div class="detail-panel">

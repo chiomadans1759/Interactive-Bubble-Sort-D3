@@ -21,7 +21,6 @@
         return radiusScale(d.articles.score) + 2
     })
 
-
     var simulation = d3.forceSimulation()
         .force("x", forceX)
         .force("y", d3.forceY(height/2).strength(0.05))
@@ -52,6 +51,8 @@
         let panelBody = d3.select(".panel-body")
         let panelHead = d3.select(".panel-head")
         let articleList = panelBody.select('.article-list')
+        let entitiesList = d3.select('.entities-list-image').selectAll("li")
+        let entitiesListName = d3.select('.entities-list-name').selectAll("h6")
         let tabTwo = panelBody.select('.tab-two')
         let tabOne = panelBody.select('.tab-one')
 
@@ -66,6 +67,8 @@
         let entityTotalQuotes = tabTwo.select('#bio-section').select('p:nth-of-type(4)')
         let entityBio = tabTwo.select('#bio-section').select('p:nth-of-type(5)') 
 
+     
+        //Return the most trending comments
         articleList.selectAll("li")
           .data(sortedQuotes.slice(0, 7))
           .enter()
@@ -73,6 +76,24 @@
           .text(quote => {
             return quote.quote
           })
+          
+        //Add Entities images in the key entities
+        entitiesList
+          .data(datapoints)
+          .enter()
+          .append("img")
+          .attr('src', function (d) {
+            return d.image_path;
+          }) 
+    
+        entitiesListName
+          .data(datapoints)
+          .enter()
+          .append("h6")
+          .text(function (d) {
+            return d.name;
+          }) 
+        
 
         defs.selectAll(".artist-pattern")
             .data(datapoints)
@@ -176,7 +197,7 @@
                 .attr("dy", "1.6em")
                 .style("font-size", "30px")
                 .attr("font-weight", "bold") 
- 
+      
         //Make the bubbles stay combined
         simulation
                 .force("x", d3.forceX(width / 2).strength(0.05))
