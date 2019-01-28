@@ -1,6 +1,8 @@
 (function () {
-    var width = 800,
-        height = 600;
+     // Extract the width and height that was computed by CSS.
+  var parentDiv = document.getElementById("chart");
+  var width = parentDiv.clientWidth;
+  var height = parentDiv.clientHeight;
 
     var svg = d3.select("#chart")
         .append("svg")
@@ -29,6 +31,14 @@
     d3.queue()
         .defer(d3.json, "sales.json")
         .await(ready)
+
+    function transitionElement(element, radius, duration){
+        element
+        .transition()
+            .duration(duration) 
+            .attr('r', radius)
+            .attr("stroke-width", 5)
+    }
     
 
     function ready(error, datapoints) {
@@ -51,7 +61,7 @@
         let panelBody = d3.select(".panel-body")
         let panelHead = d3.select(".panel-head")
         let articleList = panelBody.select('.article-list')
-        let entitiesList = d3.select('.entities-list-image').selectAll("li")
+        let entitiesListImages = d3.select('.entities-list-image').selectAll("li")
         let entitiesListName = d3.select('.entities-list-name').selectAll("h6")
         let tabTwo = panelBody.select('.tab-two')
         let tabOne = panelBody.select('.tab-one')
@@ -66,8 +76,8 @@
         let entityWorth = tabTwo.select('#bio-section').select('p:nth-of-type(3)')
         let entityTotalQuotes = tabTwo.select('#bio-section').select('p:nth-of-type(4)')
         let entityBio = tabTwo.select('#bio-section').select('p:nth-of-type(5)') 
+        
 
-     
         //Return the most trending comments
         articleList.selectAll("li")
           .data(sortedQuotes.slice(0, 7))
@@ -78,14 +88,59 @@
           })
           
         //Add Entities images in the key entities
-        entitiesList
+        entitiesListImages
           .data(datapoints)
           .enter()
           .append("img")
           .attr('src', function (d) {
             return d.image_path;
           }) 
-    
+          .on("mouseover", function (d) {
+            tooltip.html(
+                '<b>' +  d.name + "</b>" + 
+                "<br/>" +"<p>" + "Viewed by " + d.quotes.total + " people" + "</p>"
+                 + "<p>" + "Commented by " + d.age + " people" + "</p>")	     
+            .style("top", d3.event.pageY + 20 + "px")
+            .style("left", d3.event.pageX + 30 + "px")
+            .style("opacity", 1);
+
+            let elementId = d.id.toLowerCase().replace(/ /g, "-")
+            let el = svg.selectAll(`#${elementId}`)
+            transitionElement(el, 70, 500)
+        })
+        .on("mouseout", function (d) {
+            tooltip 
+            .style("opacity", 0);
+
+            circles.transition()
+            .duration(2000)
+            .attr('r', function(d){
+                return radiusScale(d.articles.score)
+            }) 
+            .attr("stroke-width", 1)
+        })
+        .on("mousedown", function(selectedEntity) {
+            tabOne.style('display', 'none')
+            tabTwo.style('display', 'flex')
+            entityImg.attr('src', selectedEntity.image_path)
+            entityName.text(selectedEntity.name)
+            entityAge.text("Age" +" " + ":" + " " + selectedEntity.age)
+            entityCountry.text("Country" +" " + ":" + " " + selectedEntity.country)
+            entityWorth.text("Est. Net Worth" + " " + ":" + " $" + selectedEntity.net_worth + "M")
+            entityTotalQuotes.text("Total Quotes" +" " + ":" + " " + selectedEntity.quotes.total)
+            entityBio.text(selectedEntity.bio)
+
+            
+
+            let elementId = selectedEntity.id.toLowerCase().replace(/ /g, "-")
+            let el = svg.selectAll(`#${elementId}`)
+            transitionElement(el, 100, 500)
+
+            
+            
+ 
+        });
+        //Add Entities names in the key entities
         entitiesListName
           .data(datapoints)
           .enter()
@@ -113,13 +168,15 @@
             .attr("xmlns:xlink", "http://www.w3.org/1999/xlink")
             .attr("xlink:href", function (d) {
                 return d.image_path
-
             })
 
         var circles = svg.selectAll(".artist")
             .data(datapoints)
             .enter().append("circle")
             .classed("artist", true)
+            .attr("id", function (d) {
+                return d.id.toLowerCase().replace(/ /g, "-")
+                })
             .attr("stroke", "brown")
             .attr("r", function (d) {
                 return radiusScale(d.articles.score)
@@ -186,17 +243,17 @@
                       .attr('r', 100)
                   } 
             }); 
-
+ 
             //apend a div on hover of each bubble
             var tooltip = d3.select("body").append("div")
             .attr("class", "tooltip")
             .style("opacity", 0)
     
-            tooltip.append("text")
-                .attr("x", 15)
-                .attr("dy", "1.6em")
-                .style("font-size", "30px")
-                .attr("font-weight", "bold") 
+            // tooltip.append("text")
+            //     .attr("x", 15)
+            //     .attr("dy", "1.6em")
+            //     .style("font-size", "30px")
+            //     .attr("font-weight", "bold") 
       
         //Make the bubbles stay combined
         simulation
