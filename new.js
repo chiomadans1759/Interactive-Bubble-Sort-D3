@@ -1,9 +1,10 @@
 (function () {
      // Extract the width and height that was computed by CSS.
-  var parentDiv = document.getElementById("chart");
-  var width = parentDiv.clientWidth;
-  var height = parentDiv.clientHeight;
+    var parentDiv = document.getElementById("chart");
+    var width = parentDiv.clientWidth;
+    var height = parentDiv.clientHeight;
 
+    //Select the Chart and append an svg platform
     var svg = d3.select("#chart")
         .append("svg")
         .attr("height", height)
@@ -26,12 +27,13 @@
     var simulation = d3.forceSimulation()
         .force("x", forceX)
         .force("y", d3.forceY(height/2).strength(0.05))
-        .force("collide", forceCollide)
+        .force("collide", forceCollide) 
 
     d3.queue()
         .defer(d3.json, "sales.json")
         .await(ready)
 
+    //Create a function for all transitions to be able to recycle codes
     function transitionElement(element, radius, duration){
         element
         .transition()
@@ -40,10 +42,8 @@
             .attr("stroke-width", 5)
     }
     
-
     function ready(error, datapoints) {
         let quotesArray = [];
-
         datapoints.forEach(data => {
             data.quotes.quote_list.forEach(quote => {
                 quotesArray.push(quote)
@@ -130,15 +130,9 @@
             entityTotalQuotes.text("Total Quotes" +" " + ":" + " " + selectedEntity.quotes.total)
             entityBio.text(selectedEntity.bio)
 
-            
-
             let elementId = selectedEntity.id.toLowerCase().replace(/ /g, "-")
             let el = svg.selectAll(`#${elementId}`)
-            transitionElement(el, 100, 500)
-
-            
-            
- 
+            transitionElement(el, 100, 500) 
         });
         //Add Entities names in the key entities
         entitiesListName
@@ -149,7 +143,6 @@
             return d.name;
           }) 
         
-
         defs.selectAll(".artist-pattern")
             .data(datapoints)
             .enter()
@@ -180,18 +173,12 @@
             .attr("stroke", "brown")
             .attr("r", function (d) {
                 return radiusScale(d.articles.score)
-            })
+            }) 
             .attr("fill", function (d) {
                 return "url(#" + d.name.toLowerCase().replace(/ /g, "-") + ")"
             })  
             .on("mouseover", function () {
                 tooltip.style("display", null) 
-                    // d3.select(this)
-                    //   .transition()
-                    //   .duration(500) 
-                    //   .attr('r', 60) 
-                    //   .attr("stroke-width", 5) 
-
                     if (this !== d3.select('circle:last-child').node()) {
                         this.parentElement.appendChild(this);
                         d3.select(this)
@@ -199,8 +186,7 @@
                           .duration(500) 
                           .attr('r', 70)
                           .attr("stroke-width", 5) 
-                      } 
-                  
+                      }   
             })
             
             .on("mouseout", function () {
@@ -248,16 +234,11 @@
             var tooltip = d3.select("body").append("div")
             .attr("class", "tooltip")
             .style("opacity", 0)
-    
-            // tooltip.append("text")
-            //     .attr("x", 15)
-            //     .attr("dy", "1.6em")
-            //     .style("font-size", "30px")
-            //     .attr("font-weight", "bold") 
       
         //Make the bubbles stay combined
         simulation
-                .force("x", d3.forceX(width / 2).strength(0.05))
+                .force("x", d3.forceX(width/2)
+                .strength(0.05))
                 .alphaTarget(0.05)
                 .restart()
         
